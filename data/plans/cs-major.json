@@ -1,61 +1,321 @@
 {
-  "planId": "plan-cs-major",
-  "planName": "CS Major",
-  "universityId": "sample-u",
-  "startSemester": "Fall 2026",
-  "years": 4,
-  "showWinter": false,
-  "showSummer": false,
-  "areasOfStudy": [
-    "FWS", "Chem", "PHYS", "Other", "Liberal Studies", "ROTC (w/ LS Credit)",
-    "Math", "CS Major", "ECE Minor", "AI Minor", "Robotics Minor"
-  ],
-  "courseList": [
-    { "courseId": "ENGL 1100F", "semester": "PRE", "areas": ["FWS"] },
-    { "courseId": "CHEM 2090", "semester": "PRE", "areas": ["Chem"] },
-    { "courseId": "PHYS 1112", "semester": "PRE", "areas": ["PHYS"] },
-    { "courseId": "PHYS 2213", "semester": "PRE", "areas": ["PHYS"] },
-    { "courseId": "ENGL 1102A", "semester": "PRE", "areas": ["Liberal Studies"] },
-    { "courseId": "MATH 1910", "semester": "PRE", "areas": ["Math"] },
-    { "courseId": "CS 1110", "semester": "PRE", "areas": ["CS Major"] },
-
-    { "courseId": "ANTHR 1101", "semester": "Fall 2026", "areas": ["FWS"] },
-    { "courseId": "PHYS 1110", "semester": "Fall 2026", "areas": ["PHYS"] },
-    { "courseId": "ENGRG 1050", "semester": "Fall 2026", "areas": ["Other"] },
-    { "courseId": "PE 1580", "semester": "Fall 2026", "areas": ["Other"] },
-    { "courseId": "MATH 1920", "semester": "Fall 2026", "areas": ["Math"] },
-    { "courseId": "CS 2110", "semester": "Fall 2026", "areas": ["CS Major"] },
-
-    { "courseId": "MILS 1102", "semester": "Spring 2027", "areas": ["ROTC (w/ LS Credit)", "Liberal Studies"] },
-    { "courseId": "MATH 2930", "semester": "Spring 2027", "areas": ["Math"] },
-    { "courseId": "CS 2800", "semester": "Spring 2027", "areas": ["CS Major"] },
-    { "courseId": "ECE 2300", "semester": "Spring 2027", "areas": ["ECE Minor"] },
-
-    { "courseId": "MILS 3301", "semester": "Fall 2027", "areas": ["ROTC (w/ LS Credit)", "Liberal Studies"] },
-    { "courseId": "MATH 2940", "semester": "Fall 2027", "areas": ["Math"] },
-    { "courseId": "CS 3110", "semester": "Fall 2027", "areas": ["CS Major"] },
-    { "courseId": "ECE 2100", "semester": "Fall 2027", "areas": ["ECE Minor"] },
-    { "courseId": "INFO 3160", "semester": "Fall 2027", "areas": ["AI Minor"] },
-
-    { "courseId": "MILS 3302", "semester": "Spring 2028", "areas": ["ROTC (w/ LS Credit)", "Liberal Studies"] },
-    { "courseId": "CS 3410", "semester": "Spring 2028", "areas": ["CS Major"] },
-    { "courseId": "ECE 3100", "semester": "Spring 2028", "areas": ["ECE Minor"] },
-    { "courseId": "ECE 3200", "semester": "Spring 2028", "areas": ["AI Minor"] },
-
-    { "courseId": "MILS 3321", "semester": "Fall 2028", "areas": ["ROTC (w/ LS Credit)", "Liberal Studies"] },
-    { "courseId": "CS 3700", "semester": "Fall 2028", "areas": ["CS Major"] },
-    { "courseId": "ECE 3140", "semester": "Fall 2028", "areas": ["ECE Minor"] },
-    { "courseId": "CS 4750", "semester": "Fall 2028", "areas": ["AI Minor"] },
-
-    { "courseId": "MILS 4401", "semester": "Spring 2029", "areas": ["ROTC (w/ LS Credit)", "Liberal Studies"] },
-    { "courseId": "CS 4410", "semester": "Spring 2029", "areas": ["CS Major"] },
-    { "courseId": "INFO 4210", "semester": "Spring 2029", "areas": ["AI Minor"] },
-
-    { "courseId": "MILS 4402", "semester": "Fall 2029", "areas": ["ROTC (w/ LS Credit)", "Liberal Studies"] },
-    { "courseId": "CS 4820", "semester": "Fall 2029", "areas": ["CS Major"] },
-    { "courseId": "CS 4782", "semester": "Fall 2029", "areas": ["AI Minor"] },
-
-    { "courseId": "CS 4701", "semester": "Spring 2030", "areas": ["CS Major"] },
-    { "courseId": "ECE 4180", "semester": "Spring 2030", "areas": ["ECE Minor"] }
-  ]
-}
+      "planId": "plan-cs-major",
+      "planName": "CS Major",
+      "universityId": "cornell",
+      "startSemester": "Fall 2026",
+      "years": 4,
+      "showWinter": false,
+      "showSummer": false,
+      "areasOfStudy": [
+        "FWS",
+        "Chem",
+        "PHYS",
+        "PE",
+        "Other",
+        "Engineering Distribution",
+        "Liberal Studies",
+        "ROTC (w/ LS Credit)",
+        "Math",
+        "CS Core",
+        "CS Electives",
+        "CS Practicum",
+        "Technical Electives",
+        "External Specialization for CS",
+        "ECE Minor",
+        "AI Minor",
+        "Robotics Minor",
+        "ECE Major",
+        "Ext Spcl for ECE"
+      ],
+      "courseList": [
+        {
+          "courseId": "ENGL 1100F",
+          "semester": "PRE",
+          "areas": [
+            "FWS"
+          ]
+        },
+        {
+          "courseId": "CHEM 2090",
+          "semester": "PRE",
+          "areas": [
+            "Chem"
+          ]
+        },
+        {
+          "courseId": "PHYS 1112",
+          "semester": "PRE",
+          "areas": [
+            "PHYS"
+          ]
+        },
+        {
+          "courseId": "PHYS 2213",
+          "semester": "PRE",
+          "areas": [
+            "PHYS"
+          ]
+        },
+        {
+          "courseId": "ENGL 1102A",
+          "semester": "PRE",
+          "areas": [
+            "Liberal Studies"
+          ]
+        },
+        {
+          "courseId": "MATH 1910",
+          "semester": "PRE",
+          "areas": [
+            "Math"
+          ]
+        },
+        {
+          "courseId": "CS 1110",
+          "semester": "PRE",
+          "areas": [
+            "CS Core"
+          ]
+        },
+        {
+          "courseId": "ANTHR 1101",
+          "semester": "Fall 2026",
+          "areas": [
+            "FWS"
+          ]
+        },
+        {
+          "courseId": "PHYS 1110",
+          "semester": "Fall 2026",
+          "areas": [
+            "PHYS"
+          ]
+        },
+        {
+          "courseId": "ENGRG 1050",
+          "semester": "Fall 2026",
+          "areas": [
+            "Other"
+          ]
+        },
+        {
+          "courseId": "PE 1580",
+          "semester": "Fall 2026",
+          "areas": [
+            "PE"
+          ]
+        },
+        {
+          "courseId": "MATH 1920",
+          "semester": "Fall 2026",
+          "areas": [
+            "Math"
+          ]
+        },
+        {
+          "courseId": "CS 2110",
+          "semester": "Fall 2026",
+          "areas": [
+            "CS Core"
+          ]
+        },
+        {
+          "courseId": "MILS 1102",
+          "semester": "Spring 2027",
+          "areas": [
+            "ROTC (w/ LS Credit)",
+            "Liberal Studies"
+          ]
+        },
+        {
+          "courseId": "MATH 2930",
+          "semester": "Spring 2027",
+          "areas": [
+            "Math"
+          ]
+        },
+        {
+          "courseId": "CS 2800",
+          "semester": "Spring 2027",
+          "areas": [
+            "CS Core"
+          ]
+        },
+        {
+          "courseId": "ECE 2300",
+          "semester": "Spring 2027",
+          "areas": [
+            "ECE Major",
+            "Engineering Distribution"
+          ]
+        },
+        {
+          "courseId": "MILS 3301",
+          "semester": "Fall 2027",
+          "areas": [
+            "ROTC (w/ LS Credit)",
+            "Liberal Studies"
+          ]
+        },
+        {
+          "courseId": "MATH 2940",
+          "semester": "Fall 2027",
+          "areas": [
+            "Math"
+          ]
+        },
+        {
+          "courseId": "CS 3110",
+          "semester": "Fall 2027",
+          "areas": [
+            "CS Core",
+            "Ext Spcl for ECE"
+          ]
+        },
+        {
+          "courseId": "ECE 2100",
+          "semester": "Fall 2027",
+          "areas": [
+            "ECE Major"
+          ]
+        },
+        {
+          "courseId": "INFO 3160",
+          "semester": "Fall 2027",
+          "areas": [
+            "AI Minor"
+          ]
+        },
+        {
+          "courseId": "MILS 3302",
+          "semester": "Spring 2028",
+          "areas": [
+            "ROTC (w/ LS Credit)",
+            "Liberal Studies"
+          ]
+        },
+        {
+          "courseId": "CS 3410",
+          "semester": "Spring 2028",
+          "areas": [
+            "CS Core",
+            "ECE Minor"
+          ]
+        },
+        {
+          "courseId": "ECE 3100",
+          "semester": "Spring 2028",
+          "areas": [
+            "ECE Major"
+          ]
+        },
+        {
+          "courseId": "ECE 3200",
+          "semester": "Spring 2028",
+          "areas": [
+            "ECE Major",
+            "AI Minor",
+            "ECE Minor"
+          ]
+        },
+        {
+          "courseId": "MILS 3321",
+          "semester": "Fall 2028",
+          "areas": [
+            "ROTC (w/ LS Credit)",
+            "Liberal Studies"
+          ]
+        },
+        {
+          "courseId": "CS 3700",
+          "semester": "Fall 2028",
+          "areas": [
+            "CS Core",
+            "AI Minor"
+          ]
+        },
+        {
+          "courseId": "ECE 3140",
+          "semester": "Fall 2028",
+          "areas": [
+            "ECE Minor"
+          ]
+        },
+        {
+          "courseId": "CS 4750",
+          "semester": "Fall 2028",
+          "areas": [
+            "AI Minor",
+            "Technical Electives"
+          ]
+        },
+        {
+          "courseId": "MILS 4401",
+          "semester": "Spring 2029",
+          "areas": [
+            "ROTC (w/ LS Credit)",
+            "Liberal Studies"
+          ]
+        },
+        {
+          "courseId": "CS 4410",
+          "semester": "Spring 2029",
+          "areas": [
+            "CS Core"
+          ]
+        },
+        {
+          "courseId": "INFO 4210",
+          "semester": "Spring 2029",
+          "areas": [
+            "AI Minor"
+          ]
+        },
+        {
+          "courseId": "MILS 4402",
+          "semester": "Fall 2029",
+          "areas": [
+            "ROTC (w/ LS Credit)",
+            "Liberal Studies"
+          ]
+        },
+        {
+          "courseId": "CS 4820",
+          "semester": "Fall 2028",
+          "areas": [
+            "CS Core"
+          ]
+        },
+        {
+          "courseId": "CS 4782",
+          "semester": "Fall 2029",
+          "areas": [
+            "AI Minor",
+            "Technical Electives"
+          ]
+        },
+        {
+          "courseId": "CS 4701",
+          "semester": "Spring 2029",
+          "areas": [
+            "CS Practicum",
+            "AI Minor"
+          ]
+        },
+        {
+          "courseId": "ECE 4180",
+          "semester": "Spring 2029",
+          "areas": [
+            "ECE Major",
+            "External Specialization for CS"
+          ]
+        },
+        {
+          "courseId": "CS 4757",
+          "semester": "Spring 2029",
+          "areas": [
+            "CS Core"
+          ]
+        }
+      ]
+    }
