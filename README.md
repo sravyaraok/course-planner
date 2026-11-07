@@ -5,6 +5,8 @@ bucket them into areas of study (major, minors, liberal studies…), and see liv
 and pre-/co-requisite warnings. No server: it runs entirely in the browser and can be hosted on
 GitHub Pages.
 
+Use it here https://sravyaraok.github.io/course-planner/dist/
+
 ## Features
 
 - **Grid view**: Pre-College/AP credits plus one column per semester, with one row per area of study.
