@@ -1,0 +1,35 @@
+<template id="tpl-app-header">
+  <header class="app-header">
+    <div class="hdr-brand">🎓 Course Planner</div>
+
+    <div class="hdr-group">
+      <label>University
+        <select data-ref="university" title="Select university"></select>
+      </label>
+      <button data-action="manage-universities" title="Add, edit or delete universities">Manage…</button>
+    </div>
+
+    <div class="hdr-group">
+      <label>Plan
+        <select data-ref="plan" title="Select course plan"></select>
+      </label>
+      <button data-action="new-plan" title="Create a new plan">New</button>
+      <button data-action="duplicate-plan" data-ref="duplicate" title="Duplicate this plan">Duplicate</button>
+      <button data-action="delete-plan" data-ref="delete" class="danger" title="Delete this plan">Delete</button>
+    </div>
+
+    <div class="hdr-group hdr-right">
+      <button data-action="import" title="Import a workspace, university roster, or plan JSON">Import</button>
+      <div class="hdr-menu">
+        <button data-action="toggle-export">Export ▾</button>
+        <div class="hdr-menu-list" data-ref="exportMenu" hidden>
+          <button data-action="export-plan">Current plan</button>
+          <button data-action="export-university">University roster (with courses)</button>
+          <button data-action="export-workspace">Everything (workspace)</button>
+        </div>
+      </div>
+      <button data-action="reset" title="Discard local changes and reload sample data">Reset</button>
+      <input type="file" accept=".json,application/json" data-ref="file" hidden>
+    </div>
+  </header>
+</template>

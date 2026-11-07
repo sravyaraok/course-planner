@@ -1,0 +1,7 @@
+.plan-course-dialog .pcd-info { font-size: 13px; display: flex; flex-direction: column; gap: 3px; }
+.plan-course-dialog .pcd-info:empty { display: none; }
+.plan-course-dialog .pcd-areas { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 4px 12px; }
+.plan-course-dialog .pcd-areas label { font-size: 13px; }
+.plan-course-dialog .pcd-warn { color: #92400e; background: var(--warn-soft); padding: 3px 6px; border-radius: 4px; }
+.plan-course-dialog .pcd-note { color: var(--accent); }
+.plan-course-dialog [hidden] { display: none !important; }

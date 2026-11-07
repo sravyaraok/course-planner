@@ -1,0 +1,23 @@
+<template id="tpl-university-manager">
+  <dialog class="modal university-manager">
+    <div class="modal-head"><span>Universities</span><button type="button" class="icon" data-action="close" title="Close">✕</button></div>
+    <div class="modal-body">
+      <table class="um-table">
+        <thead><tr><th>Name</th><th>ID</th><th>Courses</th><th>Plans</th><th></th></tr></thead>
+        <tbody data-ref="list"></tbody>
+      </table>
+      <form class="um-form" data-ref="form">
+        <div class="um-form-title" data-ref="formTitle">Add university</div>
+        <div class="row">
+          <label class="field"><span>University ID</span><input data-ref="id" placeholder="e.g. cornell" required></label>
+          <label class="field"><span>University name</span><input data-ref="name" placeholder="e.g. Cornell University" required></label>
+        </div>
+        <div class="error" data-ref="error"></div>
+        <div class="um-form-actions">
+          <button type="button" data-action="reset-form" data-ref="cancelEdit" hidden>Cancel edit</button>
+          <button type="submit" class="primary" data-ref="submit">Add university</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+</template>

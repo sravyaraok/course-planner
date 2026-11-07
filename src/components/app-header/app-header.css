@@ -1,0 +1,19 @@
+.app-header {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px 20px;
+  padding: 10px 16px; background: #1e293b; color: #e2e8f0;
+}
+.hdr-brand { font-weight: 700; font-size: 17px; margin-right: 8px; }
+.hdr-group { display: flex; align-items: center; gap: 6px; }
+.hdr-right { margin-left: auto; }
+.app-header select { min-width: 160px; max-width: 260px; color: var(--text); }
+.app-header button { background: #334155; border-color: #475569; color: #e2e8f0; }
+.app-header button:hover { background: #475569; }
+.app-header button.danger { color: #fca5a5; border-color: #7f1d1d; }
+.hdr-menu { position: relative; }
+.hdr-menu-list {
+  position: absolute; right: 0; top: calc(100% + 4px); z-index: 50; min-width: 240px;
+  display: flex; flex-direction: column; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 4px;
+}
+.hdr-menu-list[hidden] { display: none; }
+.app-header .hdr-menu-list button { background: #fff; color: var(--text); border: none; text-align: left; }
+.app-header .hdr-menu-list button:hover { background: var(--accent-soft); }

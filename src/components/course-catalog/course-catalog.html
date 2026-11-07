@@ -1,0 +1,19 @@
+<template id="tpl-course-catalog">
+  <section class="course-catalog">
+    <div class="cc-head">
+      <div class="cc-title">Courses <span class="muted" data-ref="count"></span></div>
+      <button class="primary" data-action="new-course" data-ref="newBtn">+ New</button>
+    </div>
+    <div class="cc-filters">
+      <input type="search" placeholder="Search ID, name, description…" data-ref="search">
+      <select data-ref="filter" title="Filter">
+        <option value="all">All</option>
+        <option value="unplanned">Not in plan</option>
+        <option value="planned">In plan</option>
+        <option value="issues">With issues</option>
+      </select>
+    </div>
+    <ul class="cc-list" data-ref="list"></ul>
+    <div class="cc-foot muted">Drag a course onto the grid to plan it.</div>
+  </section>
+</template>

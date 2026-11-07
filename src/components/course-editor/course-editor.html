@@ -1,0 +1,29 @@
+<template id="tpl-course-editor">
+  <dialog class="modal course-editor">
+    <form method="dialog" data-ref="form">
+      <div class="modal-head"><span data-ref="title">Course</span><button type="button" class="icon" data-action="cancel" title="Close">✕</button></div>
+      <div class="modal-body">
+        <div class="row">
+          <label class="field"><span>Course ID</span><input data-ref="id" required placeholder="e.g. CS 2110"></label>
+          <label class="field" style="flex:0 0 110px"><span>Credits</span><input type="number" min="0" step="0.5" data-ref="credits" required></label>
+        </div>
+        <label class="field"><span>Name</span><input data-ref="name" required placeholder="Course title"></label>
+        <label class="field"><span>Description</span><textarea rows="3" data-ref="description"></textarea></label>
+        <label class="field"><span>Pre-requisites</span>
+          <textarea rows="3" data-ref="prerequisites" placeholder="CS 1110, CS 1112&#10;MATH 1910"></textarea>
+          <small>One requirement set per line. List alternatives on a line separated by commas — at least one course from <b>each line</b> must be taken in a <b>prior</b> semester.</small>
+        </label>
+        <label class="field"><span>Co-requisites</span>
+          <textarea rows="2" data-ref="corequisites" placeholder="MATH 1920"></textarea>
+          <small>Same format — satisfied by a course taken in a prior semester <b>or the same</b> semester.</small>
+        </label>
+        <div class="ce-unknown muted" data-ref="unknown"></div>
+        <div class="error" data-ref="error"></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" data-action="cancel">Cancel</button>
+        <button type="submit" class="primary">Save course</button>
+      </div>
+    </form>
+  </dialog>
+</template>

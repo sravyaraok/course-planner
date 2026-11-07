@@ -1,0 +1,2 @@
+.course-editor .ce-unknown { font-size: 12px; }
+.course-editor .ce-unknown:empty { display: none; }

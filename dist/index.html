@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Planner</title>
+  <link rel="stylesheet" href="app.css?v=bbcdccf97b">
+</head>
+<body>
+  <div class="app">
+    <div data-component="app-header"></div>
+    <div class="app-body">
+      <aside class="app-sidebar" data-component="course-catalog"></aside>
+      <main class="app-main">
+        <div data-component="plan-settings"></div>
+        <div data-component="plan-grid"></div>
+      </main>
+    </div>
+  </div>
+
+  <div data-component="course-editor"></div>
+  <div data-component="plan-course-dialog"></div>
+  <div data-component="university-manager"></div>
+
+  <!-- app-header -->
+<template id="tpl-app-header">
+  <header class="app-header">
+    <div class="hdr-brand">🎓 Course Planner</div>
+
+    <div class="hdr-group">
+      <label>University
+        <select data-ref="university" title="Select university"></select>
+      </label>
+      <button data-action="manage-universities" title="Add, edit or delete universities">Manage…</button>
+    </div>
+
+    <div class="hdr-group">
+      <label>Plan
+        <select data-ref="plan" title="Select course plan"></select>
+      </label>
+      <button data-action="new-plan" title="Create a new plan">New</button>
+      <button data-action="duplicate-plan" data-ref="duplicate" title="Duplicate this plan">Duplicate</button>
+      <button data-action="delete-plan" data-ref="delete" class="danger" title="Delete this plan">Delete</button>
+    </div>
+
+    <div class="hdr-group hdr-right">
+      <button data-action="import" title="Import a workspace, university roster, or plan JSON">Import</button>
+      <div class="hdr-menu">
+        <button data-action="toggle-export">Export ▾</button>
+        <div class="hdr-menu-list" data-ref="exportMenu" hidden>
+          <button data-action="export-plan">Current plan</button>
+          <button data-action="export-university">University roster (with courses)</button>
+          <button data-action="export-workspace">Everything (workspace)</button>
+        </div>
+      </div>
+      <button data-action="reset" title="Discard local changes and reload sample data">Reset</button>
+      <input type="file" accept=".json,application/json" data-ref="file" hidden>
+    </div>
+  </header>
+</template>
+<!-- course-catalog -->
+<template id="tpl-course-catalog">
+  <section class="course-catalog">
+    <div class="cc-head">
+      <div class="cc-title">Courses <span class="muted" data-ref="count"></span></div>
+      <button class="primary" data-action="new-course" data-ref="newBtn">+ New</button>
+    </div>
+    <div class="cc-filters">
+      <input type="search" placeholder="Search ID, name, description…" data-ref="search">
+      <select data-ref="filter" title="Filter">
+        <option value="all">All</option>
+        <option value="unplanned">Not in plan</option>
+        <option value="planned">In plan</option>
+        <option value="issues">With issues</option>
+      </select>
+    </div>
+    <ul class="cc-list" data-ref="list"></ul>
+    <div class="cc-foot muted">Drag a course onto the grid to plan it.</div>
+  </section>
+</template>
+<!-- course-editor -->
+<template id="tpl-course-editor">
+  <dialog class="modal course-editor">
+    <form method="dialog" data-ref="form">
+      <div class="modal-head"><span data-ref="title">Course</span><button type="button" class="icon" data-action="cancel" title="Close">✕</button></div>
+      <div class="modal-body">
+        <div class="row">
+          <label class="field"><span>Course ID</span><input data-ref="id" required placeholder="e.g. CS 2110"></label>
+          <label class="field" style="flex:0 0 110px"><span>Credits</span><input type="number" min="0" step="0.5" data-ref="credits" required></label>
+        </div>
+        <label class="field"><span>Name</span><input data-ref="name" required placeholder="Course title"></label>
+        <label class="field"><span>Description</span><textarea rows="3" data-ref="description"></textarea></label>
+        <label class="field"><span>Pre-requisites</span>
+          <textarea rows="3" data-ref="prerequisites" placeholder="CS 1110, CS 1112&#10;MATH 1910"></textarea>
+          <small>One requirement set per line. List alternatives on a line separated by commas — at least one course from <b>each line</b> must be taken in a <b>prior</b> semester.</small>
+        </label>
+        <label class="field"><span>Co-requisites</span>
+          <textarea rows="2" data-ref="corequisites" placeholder="MATH 1920"></textarea>
+          <small>Same format — satisfied by a course taken in a prior semester <b>or the same</b> semester.</small>
+        </label>
+        <div class="ce-unknown muted" data-ref="unknown"></div>
+        <div class="error" data-ref="error"></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" data-action="cancel">Cancel</button>
+        <button type="submit" class="primary">Save course</button>
+      </div>
+    </form>
+  </dialog>
+</template>
+<!-- plan-course-dialog -->
+<template id="tpl-plan-course-dialog">
+  <dialog class="modal plan-course-dialog">
+    <form method="dialog" data-ref="form">
+      <div class="modal-head"><span data-ref="title">Plan course</span><button type="button" class="icon" data-action="cancel" title="Close">✕</button></div>
+      <div class="modal-body">
+        <label class="field"><span>Course</span>
+          <input list="pcd-courses" data-ref="course" placeholder="Type or pick a course ID" autocomplete="off" required>
+          <datalist id="pcd-courses" data-ref="options"></datalist>
+        </label>
+        <div class="pcd-info" data-ref="info"></div>
+        <label class="field"><span>Semester</span><select data-ref="semester"></select></label>
+        <div class="field"><span>Counts toward areas of study</span>
+          <div class="pcd-areas" data-ref="areas"></div>
+        </div>
+        <label class="field" data-ref="primaryField"><span>Shown in row</span>
+          <select data-ref="primary"></select>
+          <small>The course appears once in the grid, in this area's row. It still counts toward every checked area.</small>
+        </label>
+        <div class="error" data-ref="error"></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="danger" data-action="remove" data-ref="remove">Remove from plan</button>
+        <button type="button" data-action="edit-course" data-ref="editCourse">Edit course…</button>
+        <span class="spacer"></span>
+        <button type="button" data-action="cancel">Cancel</button>
+        <button type="submit" class="primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+</template>
+<!-- plan-grid -->
+<template id="tpl-plan-grid">
+  <section class="plan-grid">
+    <div class="pg-toolbar">
+      <div class="pg-stats" data-ref="stats"></div>
+      <label class="pg-toggle"><input type="checkbox" data-ref="showNames"> Show course names</label>
+      <button class="primary" data-action="add-course">+ Add course to plan</button>
+    </div>
+    <div class="pg-highlight" data-ref="highlight" hidden></div>
+    <div class="pg-scroll">
+      <table class="pg-table" data-ref="table"></table>
+    </div>
+    <p class="pg-hint muted">
+      Drag courses between cells (or from the course list) to re-plan. Click a course to edit its semester and areas.
+      Each course is shown once, in the row of its primary area; extra areas appear as tags on the course and are included
+      in those areas' totals (marked *). Click an area name to highlight every course that counts toward it.
+    </p>
+  </section>
+</template>
+<!-- plan-settings -->
+<template id="tpl-plan-settings">
+  <details class="plan-settings">
+    <summary>
+      <span class="ps-title">⚙️ Plan settings</span>
+      <span class="ps-summary muted" data-ref="summary"></span>
+    </summary>
+    <div class="ps-body">
+      <div class="ps-section">
+        <label class="field"><span>Plan name</span><input data-ref="planName" data-field="planName"></label>
+        <div class="ps-inline">
+          <label class="field"><span>Start semester</span>
+            <select data-ref="startTerm" data-field="startTerm">
+              <option>Fall</option><option>Spring</option><option>Summer</option><option>Winter</option>
+            </select>
+          </label>
+          <label class="field"><span>Start year</span><input type="number" min="1900" max="2200" data-ref="startYear" data-field="startYear"></label>
+          <label class="field"><span>Years</span><input type="number" min="1" max="10" data-ref="years" data-field="years"></label>
+        </div>
+        <div class="ps-inline ps-checks">
+          <label><input type="checkbox" checked disabled> Fall</label>
+          <label><input type="checkbox" checked disabled> Spring</label>
+          <label><input type="checkbox" data-ref="showWinter" data-field="showWinter"> Winter</label>
+          <label><input type="checkbox" data-ref="showSummer" data-field="showSummer"> Summer</label>
+        </div>
+      </div>
+      <div class="ps-section">
+        <div class="field"><span>Areas of study (grid rows)</span></div>
+        <ul class="ps-areas" data-ref="areas"></ul>
+        <form class="ps-add" data-ref="addForm">
+          <input data-ref="newArea" placeholder="New area, e.g. Math Minor">
+          <button type="submit">Add area</button>
+        </form>
+      </div>
+    </div>
+  </details>
+</template>
+<!-- university-manager -->
+<template id="tpl-university-manager">
+  <dialog class="modal university-manager">
+    <div class="modal-head"><span>Universities</span><button type="button" class="icon" data-action="close" title="Close">✕</button></div>
+    <div class="modal-body">
+      <table class="um-table">
+        <thead><tr><th>Name</th><th>ID</th><th>Courses</th><th>Plans</th><th></th></tr></thead>
+        <tbody data-ref="list"></tbody>
+      </table>
+      <form class="um-form" data-ref="form">
+        <div class="um-form-title" data-ref="formTitle">Add university</div>
+        <div class="row">
+          <label class="field"><span>University ID</span><input data-ref="id" placeholder="e.g. cornell" required></label>
+          <label class="field"><span>University name</span><input data-ref="name" placeholder="e.g. Cornell University" required></label>
+        </div>
+        <div class="error" data-ref="error"></div>
+        <div class="um-form-actions">
+          <button type="button" data-action="reset-form" data-ref="cancelEdit" hidden>Cancel edit</button>
+          <button type="submit" class="primary" data-ref="submit">Add university</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+</template>
+
+  <script src="app.js?v=bbcdccf97b"></script>
+</body>
+</html>

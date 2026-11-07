@@ -1,0 +1,30 @@
+<template id="tpl-plan-course-dialog">
+  <dialog class="modal plan-course-dialog">
+    <form method="dialog" data-ref="form">
+      <div class="modal-head"><span data-ref="title">Plan course</span><button type="button" class="icon" data-action="cancel" title="Close">✕</button></div>
+      <div class="modal-body">
+        <label class="field"><span>Course</span>
+          <input list="pcd-courses" data-ref="course" placeholder="Type or pick a course ID" autocomplete="off" required>
+          <datalist id="pcd-courses" data-ref="options"></datalist>
+        </label>
+        <div class="pcd-info" data-ref="info"></div>
+        <label class="field"><span>Semester</span><select data-ref="semester"></select></label>
+        <div class="field"><span>Counts toward areas of study</span>
+          <div class="pcd-areas" data-ref="areas"></div>
+        </div>
+        <label class="field" data-ref="primaryField"><span>Shown in row</span>
+          <select data-ref="primary"></select>
+          <small>The course appears once in the grid, in this area's row. It still counts toward every checked area.</small>
+        </label>
+        <div class="error" data-ref="error"></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="danger" data-action="remove" data-ref="remove">Remove from plan</button>
+        <button type="button" data-action="edit-course" data-ref="editCourse">Edit course…</button>
+        <span class="spacer"></span>
+        <button type="button" data-action="cancel">Cancel</button>
+        <button type="submit" class="primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+</template>

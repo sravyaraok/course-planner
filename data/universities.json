@@ -1,0 +1,16 @@
+[
+  {
+    "universityId": "sample-u",
+    "universityName": "Sample University (Engineering)",
+    "courses": [
+      "ENGL 1100F", "ANTHR 1101", "ENGL 1102A", "CHEM 2090",
+      "PHYS 1112", "PHYS 1110", "PHYS 2213", "ENGRG 1050", "PE 1580",
+      "MILS 1102", "MILS 3301", "MILS 3302", "MILS 3321", "MILS 4401", "MILS 4402",
+      "MATH 1910", "MATH 1920", "MATH 2930", "MATH 2940",
+      "CS 1110", "CS 1112", "CS 2110", "CS 2800", "CS 3110", "CS 3410", "CS 3700",
+      "CS 4410", "CS 4701", "CS 4750", "CS 4780", "CS 4782", "CS 4820",
+      "ECE 2300", "ECE 2100", "ECE 3100", "ECE 3140", "ECE 3200", "ECE 4160", "ECE 4180",
+      "INFO 3160", "INFO 4210", "MAE 3260"
+    ]
+  }
+]

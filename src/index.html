@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Planner</title>
+  <link rel="stylesheet" href="app.css?v=@buildHash">
+</head>
+<body>
+  <div class="app">
+    <div data-component="app-header"></div>
+    <div class="app-body">
+      <aside class="app-sidebar" data-component="course-catalog"></aside>
+      <main class="app-main">
+        <div data-component="plan-settings"></div>
+        <div data-component="plan-grid"></div>
+      </main>
+    </div>
+  </div>
+
+  <div data-component="course-editor"></div>
+  <div data-component="plan-course-dialog"></div>
+  <div data-component="university-manager"></div>
+
+  <!-- @templates -->
+
+  <script src="app.js?v=@buildHash"></script>
+</body>
+</html>

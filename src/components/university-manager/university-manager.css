@@ -1,0 +1,10 @@
+.university-manager { width: min(640px, 94vw); }
+.um-table { width: 100%; border-collapse: collapse; }
+.um-table th, .um-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.um-table th { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+.um-current { background: var(--accent-soft); }
+.um-actions { text-align: right; white-space: nowrap; }
+.um-form { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; gap: 10px; background: #fafbfc; }
+.um-form-title { font-weight: 600; }
+.um-form-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.um-form-actions [hidden] { display: none; }

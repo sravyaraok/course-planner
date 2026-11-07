@@ -1,0 +1,18 @@
+<template id="tpl-plan-grid">
+  <section class="plan-grid">
+    <div class="pg-toolbar">
+      <div class="pg-stats" data-ref="stats"></div>
+      <label class="pg-toggle"><input type="checkbox" data-ref="showNames"> Show course names</label>
+      <button class="primary" data-action="add-course">+ Add course to plan</button>
+    </div>
+    <div class="pg-highlight" data-ref="highlight" hidden></div>
+    <div class="pg-scroll">
+      <table class="pg-table" data-ref="table"></table>
+    </div>
+    <p class="pg-hint muted">
+      Drag courses between cells (or from the course list) to re-plan. Click a course to edit its semester and areas.
+      Each course is shown once, in the row of its primary area; extra areas appear as tags on the course and are included
+      in those areas' totals (marked *). Click an area name to highlight every course that counts toward it.
+    </p>
+  </section>
+</template>
